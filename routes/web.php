@@ -11,9 +11,11 @@ Route::get('/', function () {
 Route::prefix('/blog')->name('blog.')->group(function () {
     Route::get('/', function (Request $request) {
 
-        $posts = \App\Models\Post::find(3);
-        $posts->content = 'un autre contenu';
-        $posts->save();
+        $posts = \App\Models\Post::create([
+            'title' => 'Un article supplémentaire',
+            'slug' => 88,
+            'content' => 'Encore un autre contenu'
+        ]);
 
         return $posts;
 
