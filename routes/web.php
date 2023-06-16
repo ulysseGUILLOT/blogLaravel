@@ -11,7 +11,9 @@ Route::get('/', function () {
 Route::prefix('/blog')->name('blog.')->group(function () {
     Route::get('/', function (Request $request) {
 
-        $posts = \App\Models\Post::where('id', '>', 1)->get();
+        $posts = \App\Models\Post::find(3);
+        $posts->content = 'un autre contenu';
+        $posts->save();
 
         return $posts;
 
