@@ -11,7 +11,9 @@ Route::get('/', function () {
 Route::prefix('/blog')->name('blog.')->group(function () {
     Route::get('/', function (Request $request) {
 
-        return \App\Models\Post::all();
+        $posts = \App\Models\Post::paginate(1, ['id', 'title']);
+
+        return $posts;
 
     })->name("index");
 
