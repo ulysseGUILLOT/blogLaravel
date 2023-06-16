@@ -10,10 +10,9 @@ Route::get('/', function () {
 
 Route::prefix('/blog')->name('blog.')->group(function () {
     Route::get('/', function (Request $request) {
-        return [
-            "link0" => \route('blog.show', ['slug' => 'article', 'id' => 0]),
-            "link1" => \route('blog.show', ['slug' => 'article', 'id' => 1])
-        ];
+
+        return \App\Models\Post::all();
+
     })->name("index");
 
 
