@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 class PostController extends Controller
