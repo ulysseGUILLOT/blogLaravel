@@ -12,7 +12,7 @@
             <h3 class="mt-4">{{$post->title}}</h3>
             <div class="ms-4">
                 <p>{!! $post->content !!}</p>
-                <a href="{{ route('blog.show', ['slug' => $post->slug, 'id' => $post->id]) }}"
+                <a href="{{ route('blog.show', ['slug' => $post->slug, 'post' => $post->id]) }}"
                    class="btn btn-secondary">Lire la suite</a>
             </div>
         </article>
