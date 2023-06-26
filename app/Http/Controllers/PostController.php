@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
-use App\Http\Requests\PostFilterRequest;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -16,7 +15,7 @@ class PostController extends Controller
     public function index(): View
     {
         return view('blog.index', [
-            'posts' => Post::paginate(2)
+            'posts' => Post::paginate(6)
         ]);
     }
 
@@ -29,6 +28,17 @@ class PostController extends Controller
     {
         $post = Post::create($request->validated());
         return redirect()->route('blog.show', ['slug' => $post->slug, 'post' => $post->id])->with('success', "Le post a bien été ajouté !");
+    }
+
+    public function edit(Post $post) {
+        return view('blog.edit', [
+            'post' => $post
+        ]);
+    }
+
+    public function update(Post $post, CreatePostRequest $request) {
+        $post->update($request->validated());
+        return redirect()->route('blog.show', ['slug' => $post->slug, 'post' => $post->id])->with('success', "Le post a bien été modifié !");
     }
 
     public function show(string $slug, Post $post): View|RedirectResponse

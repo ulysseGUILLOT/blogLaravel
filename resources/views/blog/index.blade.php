@@ -18,16 +18,24 @@
 
 
 
-    @foreach($posts as $post)
-        <article>
-            <h3 class="mt-4">{{$post->title}}</h3>
-            <div class="ms-4">
-                <p>{!! $post->content !!}</p>
-                <a href="{{ route('blog.show', ['slug' => $post->slug, 'post' => $post->id]) }}"
-                   class="btn btn-secondary">Lire la suite</a>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach($posts as $post)
+            <div class="col">
+                <div class="card h-100">
+                    <img src="" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ route('blog.show', ['slug' => $post->slug, 'post' => $post->id]) }}"
+                               class="">{{$post->title}}</a>
+                        </h5>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Dernière modification : {{$post->updated_at->format('d/m/Y')}}</small>
+                    </div>
+                </div>
             </div>
-        </article>
-    @endforeach
+        @endforeach
+    </div>
 
     {{ $posts->links() }}
 @endsection
