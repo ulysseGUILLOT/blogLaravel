@@ -1,0 +1,12 @@
+.custom-link {
+    text-decoration: none;
+    color: black;
+}
+
+.custom-link:hover {
+    color: #c43c3c;
+}
+
+.bg-navbar-custom {
+    background-color: #ffe6b0;
+}
