@@ -2,7 +2,13 @@
     $routeName = request()->route()->getName();
 @endphp
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<style>
+    .bg-custom {
+        background-color: #ffe6b0;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-custom">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
             <img class="logo" src="{{ asset('img/logoPiment.png') }}" height="80" alt="logo Piment">
@@ -43,7 +49,6 @@
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
             </form>
         </div>
     </div>

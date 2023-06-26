@@ -11,7 +11,7 @@
                 <h1 class="mt-4">Liste des articles</h1>
             </div>
             <div class="col-auto">
-                <a href="{{ route('blog.create') }}" class="btn btn-success">Nouveau post</a>
+                <a href="{{ route('blog.create') }}" class="btn btn-danger">Nouveau post</a>
             </div>
         </div>
     </div>
