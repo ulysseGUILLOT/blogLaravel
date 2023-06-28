@@ -28,6 +28,7 @@
                             <a href="{{ route('blog.show', ['slug' => $post->slug, 'post' => $post->id]) }}"
                                class="custom-link">{{$post->title}}</a>
                         </h5>
+                        <p class="card-text">Catégorie : <strong>{{$post->category?->name}}</strong></p>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary">Dernière modification : {{$post->updated_at->format('d/m/Y')}}</small>

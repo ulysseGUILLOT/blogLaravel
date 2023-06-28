@@ -37,7 +37,8 @@ class PostController extends Controller
 
     public function edit(Post $post) {
         return view('blog.edit', [
-            'post' => $post
+            'post' => $post,
+            'categories' => Category::select('id', 'name')->get()
         ]);
     }
 

@@ -23,6 +23,18 @@
         {{$message}}
         @enderror
     </div>
+    <div class="form-group">
+        <label class="mb-2" for="category">Catégorie :</label>
+        <select id="category" name="category_id" class="form-control">
+            <option value="">Sélectionner un catégorie</option>
+            @foreach($categories as $category)
+                <option @selected(old('$category_id', $post->category_id) == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+        @error('$category_id')
+        {{$message}}
+        @enderror
+    </div>
     <button class="btn btn-secondary">
         @if($post->id)
             Modifier
