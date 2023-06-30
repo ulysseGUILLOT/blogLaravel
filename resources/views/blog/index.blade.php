@@ -10,9 +10,11 @@
             <div class="col-auto me-auto">
                 <h1 class="my-5">Liste des articles</h1>
             </div>
-            <div class="col-auto">
-                <a href="{{ route('blog.create') }}" class="btn btn-danger">Nouveau post</a>
-            </div>
+            @auth()
+                <div class="col-auto">
+                    <a href="{{ route('blog.create') }}" class="btn btn-custom">Nouveau post</a>
+                </div>
+            @endauth
         </div>
     </div>
 

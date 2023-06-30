@@ -10,3 +10,11 @@
 .bg-navbar-custom {
     background-color: #ffe6b0;
 }
+
+.btn-custom {
+    background-color: #ff9668;
+}
+
+.btn-custom:hover {
+    background-color: #ffba9c;
+}

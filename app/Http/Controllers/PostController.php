@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormPostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -15,7 +17,6 @@ class PostController extends Controller
 {
     public function index(): View
     {
-
         return view('blog.index', [
             'posts' => Post::paginate(6)
         ]);
@@ -25,7 +26,8 @@ class PostController extends Controller
     {
         $post = new Post();
         return view('blog.create', [
-            'post' => $post
+            'post' => $post,
+            'categories' => Category::select('id', 'name')->get()
         ]);
     }
 

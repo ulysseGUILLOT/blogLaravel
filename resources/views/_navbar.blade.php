@@ -41,9 +41,36 @@
                        aria-current="page @endif " href="{{ route('blog.index') }}">Blog</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
+            <div class="navbar-nav mas-auto mb-2 mb-lg-0">
+
+                @auth()
+                <div class="btn-group">
+                    <button class="btn btn-custom dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Mon compte
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><p class="dropdown-item disabled">{{ \Illuminate\Support\Facades\Auth::user()->name }}</p></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="">Mes likes</a></li>
+                        <li><a class="dropdown-item" href="">Paramètres</a></li>
+                        <li>
+                            <form action="{{ route('auth.logout') }}" method="post">
+                                @method("delete")
+                                @csrf
+                                <button class="dropdown-item">
+                                    <strong class="text-danger">Se déconnecter</strong>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                @endauth
+
+                @guest()
+                    <a class="btn btn-custom" href="{{ route('auth.login') }}">Connexion</a>
+                @endguest
+            </div>
         </div>
     </div>
 </nav>
